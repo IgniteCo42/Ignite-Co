@@ -1,0 +1,68 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import Logo from "/mnt/data/Capture.JPG";
+
+export default function IgniteLandingPage() {
+  return (
+    <div className="min-h-screen bg-white text-black">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-orange-500 to-red-600 text-white py-20 px-6 text-center">
+        <div className="flex justify-center mb-6">
+          <Image src={Logo} alt="Ignite & Co. Logo" width={100} height={100} className="rounded" />
+        </div>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Ignite & Co.</h1>
+        <p className="text-xl md:text-2xl mb-6 max-w-2xl mx-auto">
+          Sales & Marketing Solutions for Small Businesses
+        </p>
+        <Button className="text-lg px-6 py-3" variant="secondary">Book a Free Consultation</Button>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 px-6 bg-gray-100">
+        <h2 className="text-3xl font-semibold text-center mb-12">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            { title: "Website Design", desc: "Custom, responsive websites tailored to your brand." },
+            { title: "Digital Marketing", desc: "Strategies that drive traffic and convert leads." },
+            { title: "SEO Optimization", desc: "Rank higher on Google and get found by local customers." },
+            { title: "Lead Generation", desc: "Build and scale customer acquisition channels." },
+            { title: "Branding", desc: "Create a memorable brand identity." },
+            { title: "Consulting", desc: "Strategic guidance for growth-focused businesses." },
+          ].map((service, idx) => (
+            <Card key={idx} className="rounded-2xl shadow-md">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-gray-700">{service.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-6">About Ignite & Co.</h2>
+          <p className="text-lg text-gray-700">
+            We’re a passionate team helping small businesses thrive through powerful sales and marketing strategies. From building stunning websites to executing smart digital campaigns, Ignite & Co. is your partner in growth.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-6 bg-gray-100">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
+          <p className="mb-4 text-gray-700">Have questions or want to get started? Let’s talk!</p>
+          <form className="grid grid-cols-1 gap-4">
+            <input type="text" placeholder="Your Name" className="p-3 rounded border" />
+            <input type="email" placeholder="Your Email" className="p-3 rounded border" />
+            <textarea placeholder="Your Message" rows={4} className="p-3 rounded border" />
+            <Button className="w-full" variant="default">Send Message</Button>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+}
